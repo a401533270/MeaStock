@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        width: 520px;
+        height: 270px;
+        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    }
+    table{      
+        width: 480px;
+        border: 2px solid RGBA(62,188,202,0.8);
+        margin-left: 20px;
+        font-size: 16px;
+        cursor: default;
+        border-radius:10px;
+    }
+    th{
+        border-bottom:1px dotted #ccc; 
+    }
+    #container{
+        padding-left: 20px;
+    }
+    #title{
+        text-align:center;
+        color: rgba(230,155,3,1);
+        font-size: 24px;
+        letter-spacing: 2px;
+        font-family: DFKai-SB;
+    }
+    #alarm{
+        color: rgba(209,73,78,1);
+    }
+    .theT{
+        font-family: SimHei;
+        font-size: 30px;
+        color: rgba(3,35,14,0.5);
+    }
+    #cityN{
+        padding-left: 200px;
+    }
+    }
+    </style>
+    
+    <script type="text/javascript" src="js/getInfo.js"></script>
+</head>
+<body>
+<div id="container">
+    <div>现在气温:<span class="theT" id="temP"></span><span id="cityN">你的城市：<span class="theT" id="cName"></span></span></div>
+    <div id="alarm"></div>
+</div>
+<table >
+    <div id="title">近日天气情况</div>
+    <thead>
+      <tr>
+        <th>日期</th>
+        <th>气温</th>
+        <th>天气情况</th>
+        <th>风向</th>
+        <th>风力</th>
+      </tr>
+    </thead>  
+    <tbody id="ibody"></tbody>
+</table>
+</body>
+</html>
