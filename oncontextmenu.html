@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>oncontextmenu</title>
+	<style type="text/css">
+	    *{
+	    	margin: 0;
+	    	padding: 0;
+	    }
+		ul{  
+			position: absolute;
+			list-style: none;
+			display: none;
+		}
+		li{ 
+			border: 2px solid blue;
+			display: block;
+			width: 146px;
+			height: 50px;
+            background: #eee;
+            text-align: center;
+            cursor: pointer;
+            font-size: 20px;
+		}
+		li:hover{
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+    	<ul id="menu">
+    		<li>商店</li>
+    		<li>库</li>
+    		<li>个人资料</li>
+    		<li>设置</li>
+    </div>
+	<script type="text/javascript">
+		document.oncontextmenu = function (event){
+ 			var e = event || window.event; 
+ 			var menu=document.getElementById('menu');
+ 			if(e.pageX>(document.body.clientWidth-150)){
+                menu.style.top=e.pageY+'px';
+ 				menu.style.left=e.pageX-150+'px';
+ 			}
+ 			else if(e.pageY>window.innerHeight-216){
+ 				menu.style.top=e.pageY-216+'px';
+ 				menu.style.left=e.pageX+'px';
+ 			}
+ 			else{				
+ 			menu.style.top=e.pageY+'px';
+ 			menu.style.left=e.pageX+'px';
+ 		    }
+ 		    menu.style.display="block";
+ 			return false;			
+		}
+		document.onclick=function(){
+		   if(menu.style.display="block"){
+               menu.style.display="none";
+		   }			
+		}
+	</script>
+</body>
+</html>
