@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RegExp_phone_duplicates</title>
+</head>
+<body>
+
+<input type="text" placeholder="请输入一串数字" id="jN">
+<button id="qr">确认数字</button><br><br><br>
+<input type="text" placeholder="请输入一段字符串" id="str">
+<button id="qt">确认字符串</button>
+
+
+	<script type="text/javascript">
+	  
+	    var qr=document.getElementById('qr');
+	    qr.onclick=function(){
+	    	var jN=document.getElementById('jN').value;
+            if(yzPhoneN(jN)){
+            	alert('这是电话号码')
+            }else{
+            	alert('这不是电话号码')
+            }
+	    }
+	    qt.onclick=function(){
+	    	var str=document.getElementById('str').value;
+            if(cJudg(str)){
+            	alert('有相邻的重复单词')
+            }else{
+            	alert('无相邻的重复单词')
+            }
+	    }
+		function yzPhoneN(a) {
+			var reg1 = /^1*[3,5,8][0-9]*$/;
+			var reg2 = /^1*[4][5,7]*$/;
+			var reg3 = /^1*[7][3|6|7|8]*$/;
+			if((a+'').length==11){
+				var num=(a+'').substring(0,3);
+				switch(true){
+	            	case reg1.test(num):
+		            	return true;
+		            	break;
+		            case reg2.test(num):
+		            	return true;
+		            	break;
+		            case reg3.test(num):
+		            	return true;
+		            	break;
+		            default:
+		                return false;	
+				}
+			}
+			else{
+				return false;
+			}						
+		}
+		function cJudg(a){
+           var arr=a.split(' ');
+           bkq:
+           for(var i=0;i<arr.length;i++){
+           	 var nes=new RegExp(arr[i])
+           	 	if(nes.test(arr[i-1])||nes.test(arr[i+1])){
+                   return true;
+                   break bkq;
+           	 	}
+           	 	else{
+
+           	 	}
+     
+           }
+		} 
+	</script>
+</body>
+</html>
