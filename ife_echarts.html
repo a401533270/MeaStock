@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="echarts.js"></script>
+	<style type="text/css">
+       #main{
+       	margin: 0 auto;
+       }
+	</style>
+</head>
+<body>
+<div id="main" style="width: 600px;height:400px;"></div>
+
+	<script type="text/javascript">
+		
+ 		var myChart = echarts.init(document.getElementById('main'));
+ 		var option={
+ 			title:{
+ 				text:"电器销量"
+ 			},
+ 			tooltip:{
+
+ 			},
+ 			legend:{
+ 				data:['销量','销量走势'],
+ 				y:'top',
+ 				x:'right'
+ 			},
+ 			xAxis:{
+ 				type: 'category',
+ 				data:['空调','冰箱','洗衣机','电风扇','热水器','电视机','电饭煲'],
+ 				name:'电器名称'
+ 			},
+ 			yAxis:{
+ 				type: 'value',  
+                splitArea: { show: true },  
+                name:"数值" 
+ 			},
+ 			series:[{
+ 				name:'销量',
+ 				type:'bar',
+ 				data:[50,45,30,40,33,60,21]
+ 			},
+ 			{
+ 				name: '销量走势',  
+                type: 'line',  
+                data: [80,55,60,70,55,20,60]  
+ 			}]			
+ 		}
+        myChart.setOption(option);
+	</script>
+</body>
+</html>
