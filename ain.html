@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+       #container{
+       	background-image: url(1.jpg);
+       	background-repeat: no-repeat;
+       	background-position: center;
+        background-size: cover;
+        height: 900px;
+        line-height: 900px;
+        float: left;
+       	animation:blur 15s infinite linear;
+       	width: 100%;
+       }
+       #text{
+       	font-size: 0px;
+       	color: #ccc;
+       	font-family: "Arial Black";
+  		line-height: 300px;
+  		text-align: center;
+  		height:300px;
+		position: absolute;
+        width: 1000px;
+        top: 50%;
+        left: 50%;
+        margin-left:-500px;
+        margin-top: -150px; 
+        background-image: -webkit-linear-gradient(left, blue, red 25%, blue 50%, red 75%, blue 100%);
+        background-size: 200% 100%;
+        -webkit-text-fill-color: transparent;
+  		-webkit-background-clip: text; 
+  		animation: streamer 15s infinite linear;
+       }  
+		.wd{
+			height: 0px;
+			position: absolute;
+			width: 7px; 
+			background: rgba(255,255,255,0.5);
+			top: 50%;
+			left: 50%;			
+			animation:rlB 15s infinite;			
+		}
+		.hg{
+			height: 0px;
+			position: absolute;
+			height: 10px;
+			background: rgba(255,255,255,0.5);
+			top: 50%;
+			left: 50%;			
+			animation:tbB 15s infinite;
+		}
+		#le{
+			margin-left: -500px;
+		}
+        #rg{
+        	margin-left: 500px;
+        }
+        #to{
+            margin-top: -300px;
+        }
+        #bo{
+            margin-top: 300px;
+        }
+		@keyframes blur
+		{
+		49%{
+			 -webkit-filter: blur(0px); /* Chrome, Opera */
+		       -moz-filter: blur(0px);
+		        -ms-filter: blur(0px);    
+		            filter: blur(0px);	    
+		    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=0, MakeShadow=false); /* IE6~IE9 */
+		}	
+		50%{
+			 -webkit-filter: blur(10px); /* Chrome, Opera */
+		       -moz-filter: blur(10px);
+		        -ms-filter: blur(10px);    
+		            filter: blur(10px);	    
+		    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+		}
+		100%{
+			 -webkit-filter: blur(10px); /* Chrome, Opera */
+		       -moz-filter: blur(10px);
+		        -ms-filter: blur(10px);    
+		            filter: blur(10px);	    
+		    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+		}
+		}
+		@keyframes rlB{
+			50%{
+				display: block;
+                height: 0px;
+                margin-top: 0px;
+                opacity: 0;
+			}
+			55%{
+				height: 610px;
+				margin-top: -300px;
+				opacity: 1;
+			}
+			95%{
+				height: 610px;
+				margin-top: -300px;
+				opacity: 1;
+			}
+			100%{
+				display: block;
+                height: 0px;
+                margin-top: 0px;
+                opacity: 0;
+			}
+		}
+		@keyframes tbB{
+			50%{
+				border: 0px;
+                width: 0px;
+                margin-left: 0px;
+                opacity: 0;
+			}		
+			55%{
+				border: 5px;
+				width: 1007px;
+				margin-left: -500px;
+				opacity: 1;
+			}
+			95%{
+				border: 5px;
+				width: 1007px;
+				margin-left: -500px;
+				opacity: 1;
+			}
+			100%{
+				border: 0px;
+                width: 0px;
+                margin-left: 0px;
+                opacity: 0;
+			}
+		}
+		@keyframes streamer{
+			49%{
+				background-position: 0 0;
+		        font-size: 0px;
+		        margin-top: -120px;
+		        opacity: 0;
+			}
+			50%{
+				background-position: 0 0;
+		        font-size: 80px;
+		        margin-top: -120px;
+		        opacity: 0;
+			}
+			54% {
+		        background-position: 0 0;
+		        font-size: 80px;
+		        margin-top: -150px;
+		        opacity: 1;
+		    }
+		    75%{
+		    	background-position: -100% 0;
+		        font-size: 80px;
+		        margin-top: -150px;
+		        opacity: 1;
+		    }
+		    95%{
+		    	background-position: 0% 0;
+		        font-size: 80px;
+		        margin-top: -150px;
+		        opacity: 1;
+		    }
+		    100%{
+		    	background-position: 0 0;
+		        font-size: 80px;
+		        margin-top: -120px;
+		        opacity: 0;
+		    }
+		}
+	</style>
+</head>
+<body>
+<div>
+	<div id="container"></div>	
+	<div id="bk"></div>
+	<div class="wd" id="le"></div>
+	<div class="wd" id="rg"></div>
+	<div class="hg" id="to"></div>
+	<div class="hg" id="bo"></div>
+	<div id="text">As Your Wish,My Lord!</div>
+</div>
+</body>
+</html>
