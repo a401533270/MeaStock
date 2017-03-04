@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#bd{
+			position: absolute;			
+			left: 50%;
+			margin-left: -400px;
+		}
+		.t{
+			border-radius: 10px;			
+			margin-top: 50px;
+			border:3px solid #ccc; 
+			outline:medium;
+			width: 500px;
+			font-size: 30px;
+			text-indent: 20px;
+			line-height: 50px;
+			margin-left: 50px;
+		}
+		#submiT{
+			border-radius: 10px;
+			background: #20b2aa;
+			font-size: 30px;
+			height: 50px;
+			width: 100px;
+			border: 3px solid blue;
+			color: #fff;
+			cursor: pointer;
+			outline:medium;
+		}
+		.mc{
+			color: #ccc;
+			font-size: 20px;
+			text-indent:100px; 
+			margin-top: 15px;
+		}
+		input[type="text"]:focus{
+			border: 3px solid rgba(0, 204,204, 1);
+			box-shadow: 0px 0px 10px 1px rgba(0, 204,204, 1); 
+		}
+		#submiT:active{
+			border:1px solid #fff; 
+		}
+		label{
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+<div id="bd">
+	<form action="">
+		<label for="id1">名称</label><input type="text" class="t" id="id1" onblur="bdyz(id1,info1,4,16)"><br>
+		<div class="mc"><strong id="info1"></strong></div>
+		<label for="id2">密码</label><input type="password" class="t" id="id2" onblur="bdyz(id2,info2,6,20)"><br>
+		<div class="mc"><strong id="info2"></strong></div>
+		<label for="id3" style="margin-left: -60px">密码确认</label><input type="password" class="t" id="id3"><br>
+		<div class="mc"><strong id="info3"></strong></div>
+		<label for="id4">邮箱</label><input type="text" class="t" id="id4"><br>
+		<div class="mc"><strong id="info4"></strong></div>
+		<label for="id5">手机</label><input type="text" class="t" id="id5"><br>
+		<div class="mc"><strong id="info5"></strong></div><br>
+		<input type="button" id="submiT" value="提交">
+	</form>
+</div>
+<script type="text/javascript">
+
+	function getId(n){
+		return	document.getElementById(n);
+	}
+
+	function getByteForGB(s){		
+		return s.replace(/[^\u0000-\u007f]/g, "\u0061\u0061").length;
+	}
+
+	//获取id
+	var id1	= getId('id1'),
+		id2	= getId('id2'),
+		id3	= getId('id3'),
+		id4	= getId('id4'),
+		id5	= getId('id5'),
+		submiT = getId('submiT'),
+		info1 = getId('info1'),
+		info2 = getId('info2'),
+		info3 = getId('info3'),
+		info4 = getId('info4'),
+		info5 = getId('info5');
+
+	//封装名称和密码的验证函数
+	function bdyz(id,info,low,high){
+	var num = getByteForGB(id.value);
+		if(num == 0){
+			info.style.color = "red";
+			info.innerHTML = "这项不能为空";
+		}else{
+			if(num >= low && num <= high){
+				info.style.color = "green";
+				info.innerHTML = "格式正确";
+			}else{
+				info.style.color = "orange";
+				info.innerHTML = "字符数不符合要求";
+			}
+		}
+	}
+
+	//封装文本框获取焦点出现提示的函数
+	function infO(info,ht){
+		if(info.innerHTML == ''){
+			info.style.color = "#ccc";
+			info.innerHTML = ht;
+		}	
+	}
+
+	id1.onfocus = function(){
+		infO(info1,'名称必填，长度为4~16个字符')
+	};
+
+	id2.onfocus = function(){
+		infO(info2,'密码必填，长度为6~20个字符')
+	};
+
+	id3.onfocus = function(){
+		infO(info3,'确认密码一致')
+	};
+
+	id4.onfocus = function(){
+		infO(info4,'邮箱必填，格式：*****@***.**')
+	};
+
+	id5.onfocus = function(){
+		infO(info5,'手机号必填')
+	};
+
+	//判断密码输入是否一致
+	id3.onblur = function(){
+		if(id3.value != id2.value){
+			info3.style.color = "red";
+			info3.innerHTML = "密码不一致";
+		}else{
+			info3.style.color = "green";
+			info3.innerHTML = "密码一致";
+		}
+	};
+
+	//邮箱验证
+	id4.onblur = function(){
+		var reg = /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/; 
+        if(reg.test(id4.value)){
+        	info4.style.color = "green";
+			info4.innerHTML = "邮箱格式正确";
+        }else{
+        	info4.style.color = "red";
+			info4.innerHTML = "邮箱格式错误或为空，格式：*****@***.**";
+        }
+	}
+
+	//手机号验证
+	id5.onblur = function(){
+		var reg = /^1[34578]\d{9}$/;
+		if (reg.test(id5.value)) {
+			info5.style.color = "green";
+			info5.innerHTML = "手机号格式正确";
+		}else{
+			info5.style.color = "red";
+			info5.innerHTML = "手机号格式错误或为空";
+		}
+	}
+
+	//全局验证
+	submiT.onclick = function(){
+		var wrong = 0;
+		for(var i = 1;i < 6;i ++ ){
+			if(eval('info' + i).style.color != "green"){
+				wrong++
+			}
+		}
+		if(wrong == 0){
+			alert("输入正确，提交成功！")
+		}else{
+			alert("输入错误，提交失败！")
+		}
+	}
+</script>
+</body>
+</html>
