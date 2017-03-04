@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#bd{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -400px;
+			margin-top: -200px;
+		}
+		.t{
+			border-radius: 10px;			
+			margin-top: 50px;
+			border:3px solid #ccc; 
+			outline:medium;
+			width: 500px;
+			font-size: 30px;
+			text-indent: 20px;
+			line-height: 50px;
+		}
+		.c{
+			border-radius: 10px;
+			background: #20b2aa;
+			font-size: 30px;
+			height: 50px;
+			width: 100px;
+			border: 3px solid blue;
+			color: #fff;
+			cursor: pointer;
+			outline:medium;
+		}
+		.mc{
+			color: #ccc;
+			font-size: 20px;
+			text-indent:100px; 
+			margin-top: 15px;
+		}
+		input[type="text"]:focus{
+			border:3px solid red; 
+		}
+		input[type="button"]:active{
+			border:1px solid #fff; 
+		}
+		label{
+			font-size: 30px;
+			margin-right: 50px;
+		}
+	</style>
+</head>
+<body>
+<div id="bd">
+	<form action="">
+		<label for="id1">名称</label><input type="text" class="t" id="id1">		
+		<input type="button" class="c" value="验证" id="yz1" onclick = 'bdyz(id1,info1)'><br>
+		<div class="mc"><strong id="info1">必填，长度为4~16个字符</strong></div>
+		<label for="id2">名称</label><input type="text" class="t" id="id2">		
+		<input type="button" class="c" value="验证" id="yz2" onclick = 'bdyz(id2,info2)'><br>
+		<div class="mc"><strong id="info2">必填，长度为4~16个字符</strong></div>
+		<label for="id3">名称</label><input type="text" class="t" id="id3">
+		<input type="button" class="c" value="验证" id="yz3" onclick = 'bdyz(id3,info3)'>
+		<div class="mc"><strong id="info3">必填，长度为4~16个字符</strong></div>
+	</form>
+</div>
+<script type="text/javascript">
+
+
+	function getId(n){
+		return	document.getElementById(n);
+	}
+
+	function getByteForGB(s){		
+		return s.replace(/[^\u0000-\u007f]/g, "\u0061\u0061").length;
+	}
+
+	//获取id
+	var id1	= getId('id1'),
+		id2	= getId('id2'),
+		id3	= getId('id3'),
+		yz1 = getId('yz1'),
+		yz2 = getId('yz2'),
+		yz3 = getId('yz3'),
+		info1 = getId('info1'),
+		info2 = getId('info2'),
+		info3 = getId('info3');
+
+	//封装验证函数
+	function bdyz(id,info){
+	var num = getByteForGB(id.value);
+		if(num == 0){
+			info.style.color = "red";
+			info.innerHTML = "姓名不能为空";
+		}else{
+			if(num >= 4 && num <= 16){
+				info.style.color = "green";
+				info.innerHTML = "名称格式正确";
+			}else{
+				info.style.color = "orange";
+				info.innerHTML = "字符数不符合要求";
+			}
+		}
+	}
+
+</script>
+</body>
+</html>
