@@ -146,10 +146,10 @@
 
 	//判断密码输入是否一致
 	id3.onblur = function(){
-		if(id3.value != id2.value){
+		if((id3.value != id2.value) || (id3.value == '')){
 			id3.style.borderColor = "red";
 			info3.style.color = "red";
-			info3.innerHTML = "密码不一致";
+			info3.innerHTML = "密码不一致,或为空";
 		}else{
 			id3.style.borderColor = "green";
 			info3.style.color = "green";
