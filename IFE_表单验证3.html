@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IFE_表单验证3</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		form{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -200px;
+			margin-top: -200px;
+		}
+		label{
+			width: 20px;
+			height: 20px;
+			border: 2px solid #ccc;
+			border-radius: 30px;
+			display: inline-block;
+
+		}
+		input[type = "radio"]:checked + label:before{
+			content: '';
+			width: 10px;
+			height: 10px;
+			border-radius: 10px;
+			background: white;
+			display: block;
+			position: relative;
+			top: 5px;
+			left: 5px;
+		}
+		input[type = "radio"]:checked + label{
+			border-color: blue;
+			background: blue; 
+		}
+		#id2:checked ~ #id4{
+			display: block;
+		}
+		#id2:checked ~ #id3{
+			display: none;
+		}
+		#id4{
+			display: none;
+		}
+		.c{
+			display: none;
+		}
+		.fz{
+			display: inline;
+			margin-right: 200px;
+			font-size: 30px;
+			margin-left: 10px;
+		}
+		.inP{
+			margin-left: -80px;
+		}
+		.j{
+			margin-top: 100px;
+			margin-right: 50px;
+			width: 250px;
+			height: 45px;
+			font-size: 25px;
+			border-radius:10px;
+			border: 2px solid #ccc; 
+			display: inline-block;
+			outline: medium;
+		}
+	</style>
+</head>
+<body>
+<form action="">
+	<input type="radio" class="c" id="id1" checked="checked" name="是否在校"><label for="id1"></label><p class="fz">在校生</p>
+	<input type="radio" class="c" id="id2" name="是否在校"><label for="id2"></label><p class="fz">非在校生</p><br>
+	<div id="id3" class="inP">
+	<p style="display: inline;font-size: 30px;">学校</p>
+	<select class="j" id="CG">
+		<option>北京</option>
+		<option>上海</option>
+		<option>深圳</option>
+	</select>
+	<select style="width: 400px;" class="j" id="CGX">
+		<option>清河大学</option>
+		<option>京京大学</option>
+		<option>华文大学</option>
+	</select>
+	</div>
+	<div id="id4" class="inP"><p style="display: inline;font-size: 30px; margin-right: 30px;">就业单位</p><input type="text" class="j" style="text-indent: 10px;width: 400px;"></div>
+</form>
+
+	<script type="text/javascript">
+
+		window.onload = function () {
+			
+			var cg = document.getElementById('CG');
+			var cgx = document.getElementById('CGX');
+			function tjx(parent){
+				for(var i = 0;i<3;i ++){
+					parent.children[i].innerHTML = arguments[i+1];
+				}
+			}
+			cg.onchange = function(){
+				switch(cg.value){
+					case '北京':
+						tjx(cgx,'清河大学','京京大学','华文大学');
+						break;
+					case '上海':
+						tjx(cgx,'教大大学','文明大学','复合大学');
+						break;
+					case '深圳':
+						tjx(cgx,'广南大学','素质大学','习习大学');
+						break;
+				}
+			}
+		}
+		
+	</script>
+</body>
+</html>
