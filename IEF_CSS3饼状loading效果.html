@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3饼状loading效果</title>
+	<style type="text/css">
+	*{padding: 0;margin: 0;}
+		#loading{
+			width: 100px;
+			height: 100px;		
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -50px;
+			margin-top: -50px;
+		}
+		#sur{
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			border: 5px solid red;
+			border-left:5px solid transparent;
+			animation: zua 1s linear infinite;
+		}
+		#bd{
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			background: pink;
+			position: relative;
+			top: 20px;
+			left: 20px;
+		}
+		.circleProgress_wrapper{   
+		  width: 60px;   
+		  height: 60px;      
+		  position: absolute;  
+		  top: 50%;
+		  left: 50%;  
+		  margin-left: -25px;
+		  margin-top: -25px;
+		}   
+		.wrapper{   
+		  width: 30px;   
+		  height: 60px;   
+		  position: absolute;   
+		  top:0;   
+		  overflow: hidden;   
+		}   
+		.right{   
+		  right:0;   
+		}   
+		.left{   
+		  left:0;   
+		}   
+		.circleProgress{   
+			border-radius: 100%;
+			border:30px solid rgba(255,0,0,0.5);
+			border-right: 30px solid transparent;
+			border-bottom: 30px solid transparent;
+			position: absolute;   
+			top:0;   
+			   
+		}   
+		.rightcircle{   
+		  transform: rotate(-45deg);   
+		  right:0;   
+		  animation: zua2 1s linear infinite;  
+		}   
+		.leftcircle{   
+		 transform: rotate(135deg);
+		  left:0;   
+		  animation: zua1 1s linear infinite;  
+		}   
+
+		@keyframes zua1{
+			0%{
+				transform: rotate(135deg); 
+			}
+			50%,100%{
+				transform: rotate(-45deg); 
+			}
+		}
+		@keyframes zua2{
+			0%,50%{
+				transform: rotate(-45deg); 
+			}
+			100%{
+				transform: rotate(-225deg); 
+			}
+		}
+		@keyframes zua{
+			0%{
+				transform:rotate(0deg);
+			}
+			100%{
+				transform:rotate(-360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="loading">
+		<div id="sur"><div id="bd"></div></div>
+	</div>
+	<div class="circleProgress_wrapper">  
+        <div class="wrapper right">  
+            <div class="circleProgress rightcircle"></div>  
+        </div>  
+        <div class="wrapper left">  
+            <div class="circleProgress leftcircle"></div>  
+        </div>  
+    </div>
+
+</body>
+</html>
