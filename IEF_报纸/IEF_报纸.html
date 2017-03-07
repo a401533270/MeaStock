@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IEF_报纸</title>
+	<style type="text/css">
+		*{padding: 0;margin: 0;cursor: default;}
+		html,body{
+			background: black;
+		}
+		.container{
+			width: 980px;
+			height: 1386px;
+			background: #fff;
+			position: absolute;
+			margin-top: 50px;
+			left: 50%;
+			margin-left: -490px;
+		}
+		.tank{
+			width: 892px;
+			position: relative;
+			left: 50%;
+			margin-left: -446px;
+			height: 100%;
+		}
+		.header{
+			display: block;
+			position: relative;
+			top: 0;
+			width: 892px;
+			height: 61px;
+			border-bottom: 2px solid #938e3c;
+		}
+		.hpng{
+			display: inline-block;
+			position: relative;
+			margin-top: 63px;
+			left: 0;
+			width: 641px;
+			height: 301px;
+		}
+		.htex{			
+			position: relative;
+			margin-top: 63px;
+			right: 0px;
+			width: 203px;
+			height: 301px;
+			float: right;
+			border-top: 2px solid #cc8091;
+		}
+		.text1{
+			display: block;
+			position: relative;
+			margin-top: 50px;
+			left: 0;
+			width: 641px;
+			height: 200px;
+		}
+		.h2{
+			display: inline-block;
+			position: relative;
+			margin-top: 50px;
+			border-bottom: 2px solid #11456b;
+			width: 415px;
+			height: 160px;
+		}
+		.rpng{
+			float: right;
+			display: block;
+			position: relative;
+			margin-top: 50px;
+			right: 0;
+			width: 458px;
+			height: 275px;
+		}
+		.t2{
+			display: block;
+			position: relative;
+			margin-top: 0px;
+			right: 0;
+			width: 415px;
+			height: 440px;
+		}
+		.t3{
+			display: block;
+			position: relative;
+			margin-top: -318px;
+			float: right;
+			width: 459px;
+			height: 318px;
+			background: #eeedd6;
+		}
+		.footer{
+			display: block;
+			position: relative;
+			margin-top: 25px;
+			background: #938e3c;
+			width: 892px;
+			height: 1px;
+		}
+		.logo{
+			width: 110px;
+			height: 61px;
+			background: #d45d5c;
+		}
+		.logoT{
+			color: #fff;
+			font-size: 12px;
+			font-family: SimHei;
+			position: relative;
+			top: 50%;
+		}
+		.data{
+			font-size: 12px;
+			font-family: SimHei;
+			color: #d45d5c;
+			position: absolute;		
+			right: 5px;
+			bottom: 5px;
+		}
+		.ht1{
+			font-size: 24px;
+			display: inline-block;
+			font-family: Microsoft YaHei;
+			color: #000000;
+			line-height: 40px;
+			border-bottom: 2px solid #000000;
+		}
+		.ht1:first-letter{
+			font-size: 35px;
+		}
+		.ht2{
+			color: #676767;
+			display: inline-block;
+			font-size: 12px;
+			line-height: 10px;
+			font-family: KaiTi;
+			line-height: 10px;
+		}
+		.ht3{
+			display: inline-block;
+			margin-left: -15px;
+			font-style: italic;
+			line-height: 116px;
+			font-size: 116px;
+			font-family: Microsoft YaHei;
+			color: #75b86b;
+			text-align: center;
+		}
+		.ht4{
+			display: inline-block;
+			font-size: 55px;
+			color: #cc8091;
+			font-family: Microsoft YaHei;
+		}
+		.ht5{
+			position: relative;
+			bottom: 15px;
+			display: inline-block;
+			color: #cc8091;
+			font-family: Microsoft YaHei;
+			font-size: 21px;
+		}
+		.ht6{
+			position: relative;
+			right: 35px;
+			display: inline-block;
+			color: #ccc;
+			font-family: Microsoft YaHei;
+			font-size: 12px;
+		}
+		.tall{
+			display: inline-block;
+			width: 205px;
+			height: 200px;
+			margin-right: 5px;
+		}
+		.th1{
+			font-size: 16px;
+			text-decoration: underline;
+			color: #418c59;
+		}
+		.th2{
+			font-size: 16px;
+			text-decoration: underline;
+			color: #d2994f;
+		}
+		.th3{
+			font-size: 16px;
+			text-decoration: underline;
+			color: #cc7680;
+		}
+		.tht1{
+			font-size: 12px;
+			opacity: 0.7;
+		}
+		.h2 .text1{
+			display: inline;
+			font-size: 72px;
+			color: #f5e327;
+			font-family: SimHei;
+			font-style: italic;
+			font-weight: bold; 
+		}
+		.h2 .text2{
+			display: inline;
+			font-size: 42px;
+			color: #11456b;
+			line-height: 16px;
+			font-family: SimHei;
+			font-weight: bold; 
+		}
+		.h2 .text3{
+			margin-top: 10px;
+			display: block;
+			font-size: 33px;
+			color: #11456b;
+			line-height: 16px;
+			font-family: SimHei;
+			font-weight: bold; 
+		}
+		.t2 .text11{
+			float: left;
+			height: 70px;
+			width: 70px;
+			display: inline-block;
+			font-size: 70px;
+			color: #f5e327;
+			font-family: SimHei;
+		}
+		.t2 .text22{
+			margin-top: 10px;
+			float: right;
+			height: 70px;
+			width: 340px;
+			display: inline-block;
+			font-size: 12px;
+			color: #767777;
+			font-family: SimSun;
+			overflow: hidden;
+		}
+		.t2 .png{
+			display: inline-block;
+			top: 90px;
+			left: 240px;
+			position: absolute;
+		}
+		.t2 .text33{		
+			width: 230px;
+			display: inline-block;
+			font-size: 12px;
+			color: #767777;
+			font-family: SimSun;
+		}
+		.t2 .text44{		
+			width: 415px;
+			display: inline-block;
+			font-size: 12px;
+			color: #767777;
+			font-family: SimSun;
+			overflow: hidden;
+		}
+		.t3 .text11{
+			list-style: none;
+			line-height: 40px;
+			font-size: 21px;
+			padding: 30px;
+		}
+		.t3 .daos{
+			display: inline-block;
+			width: 0;
+			height: 0;
+		    border-left: 10px solid transparent;
+		    border-right: 10px solid transparent;
+		    border-bottom: 10px solid #10456b;
+		}
+		.t3 .logo{
+			width: 260px;
+			height: 160px;
+			background: #d45d5c;
+			display: inline-block;
+			bottom: 22px;
+			position: relative;
+		}
+		.t3 .tt1{
+			display: inline;
+			font-size: 110px;
+			width: 90px;
+			height: 86px;
+			font-family: Microsoft YaHei;
+			color: #fff;
+		}
+		.t3 .line{
+			width: 2px;
+			height: 86px;
+			display: inline-block;
+			background: #fff;
+		}
+		.t3 .tt2{
+			font-size: 21px;
+			color: #fff;
+			font-style: italic;
+			display: inline-block;
+			height: 50px;
+			position: absolute;
+			top: 20%;
+			width: 200px;
+		}
+		.t3 .tt3{
+			font-size: 12px;
+			color: #fff;
+			font-style: italic;
+			display: inline-block;			
+			height: 50px;
+			position: absolute;
+			top: 55%;
+			width: 200px;
+		}
+		.t3 .rtext{
+			display: inline-block;
+			position: absolute;
+			left: 260px;
+			top: 200px;
+			width: 200px;
+			height: 160px;
+		}
+		.t3 .fuhao{
+			font-size: 50px;
+			color: #d45d5c;
+			line-height: 1px;
+			position: relative;
+			top: 25px;
+
+		}
+		.t3 .rtext{	
+			text-indent: 20px;
+			height: 160px;
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="tank">
+			<div class="header">
+				<div class="logo"><span class="logoT">logo's here</span></div>
+				<div class="data">2017.03</div>
+			</div>
+			<div class="hpng">
+				<img src="1.png">
+			</div>
+			<div class="htex">
+				<div class="ht1">ABOUT</div>
+				<div class="ht1">TECHNOLOGE</div>
+				<div class="ht2"><em>About technologe about technologe  about technologe</em></div>
+				<div class="ht3">700</div>
+				<div class="ht4">3.2</div>
+				<div class="ht5">css</div>
+				<div class="ht6">this is it</div>
+			</div>
+			<div class="text1">
+				<div class="tall">
+					<div class="th1">What</div>
+					<div class="tht1">JavaScript ( JS ) 是一种轻量级，解释型的，有着 函数优先 (First-class Function) 的编程语言。虽然它是作为开发web页面的脚本语言而出名的，但是在很多非浏览器环境中也使用JavaScript，例如 node.js 和 Apache CouchDB。JS是一种基于原型、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如：函数式编程）编程风格。了解更多 关于JavaScript。</div>
+				</div>
+				<div class="tall">
+					<div class="th2">When</div>
+					<div class="tht1">JavaScript ( JS ) 是一种轻量级，解释型的，有着 函数优先 (First-class Function) 的编程语言。虽然它是作为开发web页面的脚本语言而出名的，但是在很多非浏览器环境中也使用JavaScript，例如 node.js 和 Apache CouchDB。JS是一种基于原型、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如：函数式编程）编程风格。了解更多 关于JavaScript。</div>
+				</div>
+				<div class="tall">
+					<div class="th3">How</div>
+					<div class="tht1">JavaScript ( JS ) 是一种轻量级，解释型的，有着 函数优先 (First-class Function) 的编程语言。虽然它是作为开发web页面的脚本语言而出名的，但是在很多非浏览器环境中也使用JavaScript，例如 node.js 和 Apache CouchDB。JS是一种基于原型、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如：函数式编程）编程风格。了解更多 关于JavaScript。</div>
+				</div>
+			</div>
+			<div class="h2">
+				<div class="text1">THE</div>
+				<div class="text2">TECHNOLOGE OF FRONT</div>
+				<div class="text3">前端技术领域</div>
+			</div>
+			<div class="rpng">
+				<img src="2.png">
+			</div>
+			<div class="t2">
+				<div class="text11">前</div>
+				<div class="text22">ECMAScript 是 JavaScript 的标准。截至 2012 年，所有的现代浏览器都完整了支持  ECMAScript 5.1，旧式的浏览器至少支持 ECMAScript 3 标准。在2015年6月17日，ECMA国际组织发布了 ECMAScript 的第六版，该版本正式名称为ECMAScript 2015，但通常被称为 ECMAScript 6 或者ES6。自此，
+				</div>
+				<div class="text33">ECMAScript每年发布一次新标准。本文档目前覆盖了最新ECMAScript的草案，也就是ECMAScript2017。不要将 JavaScript 与 Java 编程语言混淆。虽然“Java”和“JavaScript”都是 Oracle 公司在美国和其他国家注册（或未注册）的商标，但是这两门语言在语法、语义与用途方面有很大不同。
+				JavaScript 对象是动态的属性“包”（指其自己的属性）。JavaScript 对象有一个指向一个原型对象的链。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及该对象的原型的原型，依此层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。ECMAScript 5的严格模式是JavaScript中的一种限制性更强的变种方式。严格模式不是一个子集：它在语义上与正常代码有着明显的差异。不支持严格模式的浏览器与支持严格模式的浏览器行为上也不一样， 所以不要在未经严格模式特性测试情况下使用严格模式。严格模式可以与非严格模式共存，所以脚本可以逐渐的选择性加入严格模式。</div>
+				<div class="text44">八进制转义序列(反斜杠\后跟一位,两位,或三位的八进制数字)出现在字符串字面量和正则字面量中的的用法已经废弃.escape函数和unescape函数已经废弃,请使用encodeURI,encodeURIComponent,decodeURI或者decodeURIComponent来进行给定字符串的编码和解码工作.</div>			
+				<img src="3.png" class="png">
+			</div>
+			<div class="t3">
+				<ul class="text11">
+					<li><span class="daos"></span>eazy peazy lemon............bingo</li>
+					<li><span class="daos"></span>check it out....................6666</li>
+					<li><span class="daos"></span>bingo bango bongo...............bish</li>
+				</ul>
+				<div class="logo">
+					<div class="tt1">0</div>
+					<div class="line"></div>
+					<div class="tt2">ONE TWO  THREE FORE FIVE</div>
+					<div class="tt3">hello world hello world hello world hello worldhello world</div>
+				</div>
+				<div class="rtext">
+					<span class="fuhao">“</span>
+					<span class="text">world hello world hello world hello world hello world hello world hello world hello world hello word</span>
+					<span class="fuhao">”</span>
+				</div>
+			</div>
+			<div class="footer"></div>
+		</div>
+	</div>
+</body>
+</html>
